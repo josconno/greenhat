@@ -16,7 +16,7 @@ def get_date_string(n, startdate):
 
 # main app
 def main(argv):
-	if len(argv) < 1 or len(argv) > 2:
+	if not 1 <= len(argv) <= 2:
 		print "Error: Bad input."
 		sys.exit(1)
 	n = int(argv[0])
@@ -24,6 +24,7 @@ def main(argv):
 		startdate = date.today()
 	if len(argv) == 2:
 		startdate = date(int(argv[1][0:4]), int(argv[1][5:7]), int(argv[1][8:10]))
+
 	i = 0
 	while i <= n:
 		curdate = get_date_string(i, startdate)
